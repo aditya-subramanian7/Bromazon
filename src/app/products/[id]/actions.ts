@@ -26,10 +26,6 @@ export default async function incrementProductQuantity(productId: string) {
       },
     });
   } else {
-    await prisma.cartItem.create({
-      data: { cartId: cart.id, productId: productId, quantity: 1 },
-    });
-
     await prisma.cart.update({
       where: { id: cart.id },
       data: {
